@@ -26,8 +26,8 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		String user = (String) request.getAttribute("login");
-		String password = (String) request.getAttribute("password");
+		String user = request.getParameter("login");
+		String password = request.getParameter("password");
 		boolean userIsValid = user != null && !user.isEmpty() &&
 			Users.getInstance().getUsers().contains(user);
 		boolean passwordIsValid = password != null && !password.trim().isEmpty();
